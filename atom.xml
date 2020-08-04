@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>Hexo</title>
+  <title>温暖如湘</title>
   
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://lzb.github.io.git/"/>
   <updated>2020-07-31T08:30:12.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://lzb.github.io.git/</id>
   
   <author>
-    <name>John Doe</name>
+    <name>又酸又菜有多余</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2020/08/04/hello-world/"/>
-    <id>http://yoursite.com/2020/08/04/hello-world/</id>
+    <link href="http://lzb.github.io.git/2020/08/04/hello-world/"/>
+    <id>http://lzb.github.io.git/2020/08/04/hello-world/</id>
     <published>2020-08-04T02:20:20.196Z</published>
     <updated>2020-07-31T08:30:12.000Z</updated>
     
@@ -39,13 +39,22 @@
   </entry>
   
   <entry>
-    <title>第一篇博客</title>
-    <link href="http://yoursite.com/2020/07/31/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://yoursite.com/2020/07/31/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
+    <title>Jenkins持续集成安装和部署</title>
+    <link href="http://lzb.github.io.git/2020/07/31/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://lzb.github.io.git/2020/07/31/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
     <published>2020-07-31T08:35:49.000Z</published>
-    <updated>2020-07-31T08:35:50.000Z</updated>
+    <updated>2020-08-04T09:12:29.467Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="什么是Jenkins持续集成？">什么是Jenkins持续集成？</h2><blockquote><p>持续集成,即Continuous InterGration,简称CI，随着软件开发复杂度的不断提高，团队开发成员之间如何更好的协同工作以确保软件的开发质量已经成为一个不可回避的问题。尤其是近年来如何能在不断变化的需求中快速适应和保证软件的质量显得尤其的重要，持续集成就是针对此类问题的是一种软件同实践。它倡导团队开发成员必须经常集成他们的工作，甚至每天都可能发生多次集成，而持续集成都是通过自动化的构建来实现的，包括自动获取仓库代码、自动编译、自动发布和测试、从而尽可能地早的发现问题，让团队能更快地开发高质量的软件。</p></blockquote>]]></content>
     
     <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;什么是Jenkins持续集成？&quot;&gt;什么是Jenkins持续集成？&lt;/h2&gt;
+&lt;blockquote&gt;
+&lt;p&gt;持续集成,即Continuous InterGration,简称CI，随着软件开发复杂度的不断提高，团队开发成员之间如何更好的协同工作以确保软件的开发质量已
+      
     
     </summary>
     
