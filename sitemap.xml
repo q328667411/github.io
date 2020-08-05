@@ -2,6 +2,55 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xiang.bio/link/index.html</loc>
+    
+    <lastmod>2020-08-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xiang.bio/movies/index.html</loc>
+    
+    <lastmod>2020-08-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xiang.bio/music/index.html</loc>
+    
+    <lastmod>2020-08-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xiang.bio/messageboard/index.html</loc>
+    
+    <lastmod>2020-08-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xiang.bio/categories/index.html</loc>
+    
+    <lastmod>2020-08-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xiang.bio/tags/index.html</loc>
+    
+    <lastmod>2020-08-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xiang.bio/photos/index.html</loc>
+    
+    <lastmod>2020-08-05</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xiang.bio/posts/e0ccad08.html</loc>
     
     <lastmod>2020-08-05</lastmod>
@@ -23,13 +72,6 @@
   </url>
   
   <url>
-    <loc>http://xiang.bio/categories/index.html</loc>
-    
-    <lastmod>2020-08-04</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>http://xiang.bio/contact/index.html</loc>
     
     <lastmod>2020-08-04</lastmod>
@@ -38,13 +80,6 @@
   
   <url>
     <loc>http://xiang.bio/friends/index.html</loc>
-    
-    <lastmod>2020-08-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xiang.bio/tags/index.html</loc>
     
     <lastmod>2020-08-04</lastmod>
     
