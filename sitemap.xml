@@ -2,49 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://lzb.github.io.git/posts/4a17b156.html</loc>
+    <loc>http://xiang.bio/posts/e0ccad08.html</loc>
+    
+    <lastmod>2020-08-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xiang.bio/posts/4a17b156.html</loc>
+    
+    <lastmod>2020-08-05</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xiang.bio/about/index.html</loc>
     
     <lastmod>2020-08-04</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lzb.github.io.git/posts/e0ccad08.html</loc>
+    <loc>http://xiang.bio/categories/index.html</loc>
     
     <lastmod>2020-08-04</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lzb.github.io.git/about/index.html</loc>
+    <loc>http://xiang.bio/contact/index.html</loc>
     
     <lastmod>2020-08-04</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lzb.github.io.git/categories/index.html</loc>
+    <loc>http://xiang.bio/friends/index.html</loc>
     
     <lastmod>2020-08-04</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lzb.github.io.git/contact/index.html</loc>
-    
-    <lastmod>2020-08-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lzb.github.io.git/friends/index.html</loc>
-    
-    <lastmod>2020-08-04</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://lzb.github.io.git/tags/index.html</loc>
+    <loc>http://xiang.bio/tags/index.html</loc>
     
     <lastmod>2020-08-04</lastmod>
     
@@ -52,7 +52,7 @@
   
 
   <url>
-    <loc>http://lzb.github.io.git/</loc>
+    <loc>http://xiang.bio/</loc>
     <lastmod>2020-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
