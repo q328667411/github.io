@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://lzb.github.io.git/2020/08/04/hello-world/</loc>
+    <loc>http://lzb.github.io.git/posts/4a17b156.html</loc>
     
     <lastmod>2020-08-04</lastmod>
     
   </url>
   
   <url>
-    <loc>http://lzb.github.io.git/2020/07/31/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</loc>
+    <loc>http://lzb.github.io.git/posts/e0ccad08.html</loc>
     
     <lastmod>2020-08-04</lastmod>
     
@@ -53,7 +53,7 @@
 
   <url>
     <loc>http://lzb.github.io.git/</loc>
-    <lastmod>2020-08-04</lastmod>
+    <lastmod>2020-08-05</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>

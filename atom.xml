@@ -10,7 +10,7 @@
   <id>http://lzb.github.io.git/</id>
   
   <author>
-    <name>又酸又菜有多余</name>
+    <name>温暖如湘</name>
     
   </author>
   
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://lzb.github.io.git/2020/08/04/hello-world/"/>
-    <id>http://lzb.github.io.git/2020/08/04/hello-world/</id>
+    <link href="http://lzb.github.io.git/posts/4a17b156.html"/>
+    <id>http://lzb.github.io.git/posts/4a17b156.html</id>
     <published>2020-08-04T09:26:54.370Z</published>
     <updated>2020-08-04T09:23:52.000Z</updated>
     
@@ -40,8 +40,8 @@
   
   <entry>
     <title>Jenkins持续集成安装和部署</title>
-    <link href="http://lzb.github.io.git/2020/07/31/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/"/>
-    <id>http://lzb.github.io.git/2020/07/31/%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2/</id>
+    <link href="http://lzb.github.io.git/posts/e0ccad08.html"/>
+    <id>http://lzb.github.io.git/posts/e0ccad08.html</id>
     <published>2020-07-31T08:35:49.000Z</published>
     <updated>2020-08-04T09:23:52.000Z</updated>
     
