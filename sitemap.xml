@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://xiang.bio/music/index.html</loc>
+    
+    <lastmod>2020-08-07</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://xiang.bio/playlist/index.html</loc>
+    
+    <lastmod>2020-08-07</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://xiang.bio/posts/e0ccad08.html</loc>
     
     <lastmod>2020-08-06</lastmod>
@@ -31,13 +45,6 @@
   
   <url>
     <loc>http://xiang.bio/movies/index.html</loc>
-    
-    <lastmod>2020-08-05</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://xiang.bio/music/index.html</loc>
     
     <lastmod>2020-08-05</lastmod>
     
