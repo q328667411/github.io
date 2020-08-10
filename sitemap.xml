@@ -2,91 +2,91 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://xiang.bio/movies/index.html</loc>
+    <loc>https://xiang.bio/movies/index.html</loc>
     
     <lastmod>2020-08-07</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/music/index.html</loc>
+    <loc>https://xiang.bio/music/index.html</loc>
     
     <lastmod>2020-08-07</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/posts/e0ccad08.html</loc>
+    <loc>https://xiang.bio/posts/e0ccad08.html</loc>
     
     <lastmod>2020-08-07</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/playlist/index.html</loc>
+    <loc>https://xiang.bio/playlist/index.html</loc>
     
     <lastmod>2020-08-07</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/about/index.html</loc>
+    <loc>https://xiang.bio/about/index.html</loc>
     
     <lastmod>2020-08-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/posts/4a17b156.html</loc>
+    <loc>https://xiang.bio/posts/4a17b156.html</loc>
     
     <lastmod>2020-08-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/link/index.html</loc>
+    <loc>https://xiang.bio/link/index.html</loc>
     
     <lastmod>2020-08-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/messageboard/index.html</loc>
+    <loc>https://xiang.bio/messageboard/index.html</loc>
     
     <lastmod>2020-08-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/categories/index.html</loc>
+    <loc>https://xiang.bio/categories/index.html</loc>
     
     <lastmod>2020-08-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/tags/index.html</loc>
+    <loc>https://xiang.bio/tags/index.html</loc>
     
     <lastmod>2020-08-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/photos/index.html</loc>
+    <loc>https://xiang.bio/photos/index.html</loc>
     
     <lastmod>2020-08-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/contact/index.html</loc>
+    <loc>https://xiang.bio/contact/index.html</loc>
     
     <lastmod>2020-08-04</lastmod>
     
   </url>
   
   <url>
-    <loc>http://xiang.bio/friends/index.html</loc>
+    <loc>https://xiang.bio/friends/index.html</loc>
     
     <lastmod>2020-08-04</lastmod>
     
@@ -94,30 +94,30 @@
   
 
   <url>
-    <loc>http://xiang.bio/</loc>
-    <lastmod>2020-08-07</lastmod>
+    <loc>https://xiang.bio/</loc>
+    <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
 
   
   <url>
-    <loc>http://xiang.bio/tags/Hexo/</loc>
-    <lastmod>2020-08-07</lastmod>
+    <loc>https://xiang.bio/tags/Hexo/</loc>
+    <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://xiang.bio/tags/%E4%B8%BB%E9%A2%98/</loc>
-    <lastmod>2020-08-07</lastmod>
+    <loc>https://xiang.bio/tags/%E4%B8%BB%E9%A2%98/</loc>
+    <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://xiang.bio/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2020-08-07</lastmod>
+    <loc>https://xiang.bio/tags/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -125,15 +125,15 @@
 
   
   <url>
-    <loc>http://xiang.bio/categories/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2020-08-07</lastmod>
+    <loc>https://xiang.bio/categories/%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>http://xiang.bio/categories/%E6%95%99%E7%A8%8B/Hexo/</loc>
-    <lastmod>2020-08-07</lastmod>
+    <loc>https://xiang.bio/categories/%E6%95%99%E7%A8%8B/Hexo/</loc>
+    <lastmod>2020-08-10</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
