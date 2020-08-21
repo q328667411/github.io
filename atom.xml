@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xiang.bio/"/>
-  <updated>2020-08-05T13:26:06.088Z</updated>
+  <updated>2020-08-21T03:07:08.317Z</updated>
   <id>https://xiang.bio/</id>
   
   <author>
@@ -17,13 +17,35 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>redis实现主从复制</title>
+    <link href="https://xiang.bio/posts/39474014.html"/>
+    <id>https://xiang.bio/posts/39474014.html</id>
+    <published>2020-08-21T02:35:07.000Z</published>
+    <updated>2020-08-21T03:07:08.317Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="什么是Redis主从复制？">什么是Redis主从复制？</h2><pre><code>持久化保证了即使redis服务重启也不会丢失数据，因为redis服务重启后会将硬盘上持久化的数据恢复到内存中，但是当redis服务器的硬盘损坏了可能会导致数据丢失，不过通过redis的主从复制机制就可以避免这种单点故障</code></pre><p><img src= "/img/loading.gif" data-lazy-src="/posts/39474014/1.png" alt="*"><br>说明:</p><ul><li>主redis中的数据有两个副本（replication）即从redis1和从redis2，即使一台redis服务器宕机其它两台redis服务也可以继续提供服务。</li><li>主redis中的数据和从redis上的数据保持实时同步，当主redis写入数据时通过主从复制机制会复制到两个从redis服务上。只有一个主redis，可以有多个从redis。</li><li>主从复制不会阻塞master，在同步数据时，master 可以继续处理client 请求</li><li>一个redis可以即是主又是从</li></ul><h2 id="主从配置">主从配置</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
     <title>Hello World</title>
     <link href="https://xiang.bio/posts/4a17b156.html"/>
     <id>https://xiang.bio/posts/4a17b156.html</id>
     <published>2020-08-05T13:26:06.094Z</published>
     <updated>2020-08-05T13:26:06.088Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     <summary type="html">
     
@@ -55,7 +77,7 @@
     <published>2020-07-31T08:35:49.000Z</published>
     <updated>2020-08-07T08:37:45.504Z</updated>
     
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="/assets/js/Meting.min.js"></script><h2 id="什么是Jenkins持续集成？">什么是Jenkins持续集成？</h2><p><strong>持续集成,即Continuous InterGration,简称CI，随着软件开发复杂度的不断提高，团队开发成员之间如何更好的协同工作以确保软件的开发质量已经成为一个不可回避的问题。尤其是近年来如何能在不断变化的需求中快速适应和保证软件的质量显得尤其的重要，持续集成就是针对此类问题的是一种软件同实践。它倡导团队开发成员必须经常集成他们的工作，甚至每天都可能发生多次集成，而持续集成都是通过自动化的构建来实现的，包括自动获取仓库代码、自动编译、自动发布和测试、从而尽可能地早的发现问题，让团队能更快地开发高质量的软件。</strong></p><h2 id="持续集成的核心价值">持续集成的核心价值</h2><ol><li>持续集成中的任何一个环节都是自动完成的，无需太多人工干预，有利于减少重复操作，以节省时间、费用和工作量</li><li>持续集成保障每个时间点上团队成员提交的代码是能成功集成的，也就是说，任何时间点都能第一时间发现软件的集成问题，使任意时间发布可部署软件成为可能</li><li>持续集成在需求不明确或是频繁变更的情景中尤为重要</li><li>持续集成能帮助企业减少管理风险，很多时候，团队中任何一人都不知道项目到底什么时候能真正结束，因为不连接，不及时的集成最大的问题就是：很难预测项目要花多长时间，结果就是，大家都像个盲人一样置身于项目的大森林里。持续集成完全能解决这些问题，没有漫长的集成工作，所有的盲点尽在掌握</li></ol><h2 id="持续集成的应用场景">持续集成的应用场景</h2><ul><li>假设一个开发团队有9个人，每个人负责一个功能，或者一个模块，开发者小智是其中之一，当小智写了一个月的代码，然后合并进系统中，这个时候有什么问题呢？问题就是可能小智需要三天解决代码之间的冲突，再用一周解决冲突时候新产生的BUG，再用一周帮助其他团队成员和他的代码之间进行整合，在很多时候，这样的风险会伴随整个项目周期，<br>而持续集成就是每天都集成，或者每天集成10次(每隔30分钟集成一次)。这样每次集成进系统中的代码很少，解决五行代码引起的错误简单和解决500行代码引起的错误，哪个更简单？但是现在还有一个很实际的问题，就是持续集成这个脏活累活，谁来做？当然是CI它能让持续集成自动化，简单化。(可以通过这个应用场景，在团队协作开发过程中，持续集成真正的作用)*<br><img src= "/img/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200716104919148.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXppYmFvMTIz,size_16,color_FFFFFF,t_70" alt="alt"><br>==以后在更新==</li></ul>]]></content>
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="什么是Jenkins持续集成？">什么是Jenkins持续集成？</h2><p><strong>持续集成,即Continuous InterGration,简称CI，随着软件开发复杂度的不断提高，团队开发成员之间如何更好的协同工作以确保软件的开发质量已经成为一个不可回避的问题。尤其是近年来如何能在不断变化的需求中快速适应和保证软件的质量显得尤其的重要，持续集成就是针对此类问题的是一种软件同实践。它倡导团队开发成员必须经常集成他们的工作，甚至每天都可能发生多次集成，而持续集成都是通过自动化的构建来实现的，包括自动获取仓库代码、自动编译、自动发布和测试、从而尽可能地早的发现问题，让团队能更快地开发高质量的软件。</strong></p><h2 id="持续集成的核心价值">持续集成的核心价值</h2><ol><li>持续集成中的任何一个环节都是自动完成的，无需太多人工干预，有利于减少重复操作，以节省时间、费用和工作量</li><li>持续集成保障每个时间点上团队成员提交的代码是能成功集成的，也就是说，任何时间点都能第一时间发现软件的集成问题，使任意时间发布可部署软件成为可能</li><li>持续集成在需求不明确或是频繁变更的情景中尤为重要</li><li>持续集成能帮助企业减少管理风险，很多时候，团队中任何一人都不知道项目到底什么时候能真正结束，因为不连接，不及时的集成最大的问题就是：很难预测项目要花多长时间，结果就是，大家都像个盲人一样置身于项目的大森林里。持续集成完全能解决这些问题，没有漫长的集成工作，所有的盲点尽在掌握</li></ol><h2 id="持续集成的应用场景">持续集成的应用场景</h2><ul><li>假设一个开发团队有9个人，每个人负责一个功能，或者一个模块，开发者小智是其中之一，当小智写了一个月的代码，然后合并进系统中，这个时候有什么问题呢？问题就是可能小智需要三天解决代码之间的冲突，再用一周解决冲突时候新产生的BUG，再用一周帮助其他团队成员和他的代码之间进行整合，在很多时候，这样的风险会伴随整个项目周期，<br>而持续集成就是每天都集成，或者每天集成10次(每隔30分钟集成一次)。这样每次集成进系统中的代码很少，解决五行代码引起的错误简单和解决500行代码引起的错误，哪个更简单？但是现在还有一个很实际的问题，就是持续集成这个脏活累活，谁来做？当然是CI它能让持续集成自动化，简单化。(可以通过这个应用场景，在团队协作开发过程中，持续集成真正的作用)*<br><img src= "/img/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200716104919148.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXppYmFvMTIz,size_16,color_FFFFFF,t_70" alt="alt"><br>==以后在更新==</li></ul>]]></content>
     
     <summary type="html">
     

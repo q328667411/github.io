@@ -2,14 +2,21 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://xiang.bio/movies/index.html</loc>
+    <loc>https://xiang.bio/posts/39474014.html</loc>
     
-    <lastmod>2020-08-07</lastmod>
+    <lastmod>2020-08-21</lastmod>
     
   </url>
   
   <url>
     <loc>https://xiang.bio/music/index.html</loc>
+    
+    <lastmod>2020-08-10</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://xiang.bio/movies/index.html</loc>
     
     <lastmod>2020-08-07</lastmod>
     
@@ -95,7 +102,7 @@
 
   <url>
     <loc>https://xiang.bio/</loc>
-    <lastmod>2020-08-10</lastmod>
+    <lastmod>2020-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -103,21 +110,21 @@
   
   <url>
     <loc>https://xiang.bio/tags/Hexo/</loc>
-    <lastmod>2020-08-10</lastmod>
+    <lastmod>2020-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiang.bio/tags/%E4%B8%BB%E9%A2%98/</loc>
-    <lastmod>2020-08-10</lastmod>
+    <lastmod>2020-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiang.bio/tags/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2020-08-10</lastmod>
+    <lastmod>2020-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
@@ -126,14 +133,14 @@
   
   <url>
     <loc>https://xiang.bio/categories/%E6%95%99%E7%A8%8B/</loc>
-    <lastmod>2020-08-10</lastmod>
+    <lastmod>2020-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
     <loc>https://xiang.bio/categories/%E6%95%99%E7%A8%8B/Hexo/</loc>
-    <lastmod>2020-08-10</lastmod>
+    <lastmod>2020-08-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.6</priority>
   </url>
