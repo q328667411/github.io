@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xiang.bio/"/>
-  <updated>2020-08-05T13:26:06.000Z</updated>
+  <updated>2020-08-21T03:13:32.000Z</updated>
   <id>https://xiang.bio/</id>
   
   <author>
@@ -17,38 +17,6 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Hello World</title>
-    <link href="https://xiang.bio/posts/4a17b156.html"/>
-    <id>https://xiang.bio/posts/4a17b156.html</id>
-    <published>2020-08-31T07:01:12.954Z</published>
-    <updated>2020-08-05T13:26:06.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start">Quick Start</h2><h3 id="Create-a-new-post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-    
-      <category term="教程" scheme="https://xiang.bio/categories/%E6%95%99%E7%A8%8B/"/>
-    
-      <category term="Hexo" scheme="https://xiang.bio/categories/%E6%95%99%E7%A8%8B/Hexo/"/>
-    
-    
-      <category term="Hexo" scheme="https://xiang.bio/tags/Hexo/"/>
-    
-      <category term="主题" scheme="https://xiang.bio/tags/%E4%B8%BB%E9%A2%98/"/>
-    
-      <category term="教程" scheme="https://xiang.bio/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
     <title>redis实现主从复制</title>
     <link href="https://xiang.bio/posts/39474014.html"/>
     <id>https://xiang.bio/posts/39474014.html</id>
@@ -56,28 +24,6 @@
     <updated>2020-08-21T03:13:32.000Z</updated>
     
     <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="什么是Redis主从复制？">什么是Redis主从复制？</h2><p>持久化保证了即使redis服务重启也不会丢失数据，因为redis服务重启后会将硬盘上持久化的数据恢复到内存中，<br>但是当redis服务器的硬盘损坏了可能会导致数据丢失，不过通过redis的主从复制机制就可以避免这种单点故障</p><p><img src= "/img/loading.gif" data-lazy-src="/posts/39474014/1.png" alt="*"><br>说明:</p><ul><li>主redis中的数据有两个副本（replication）即从redis1和从redis2，即使一台redis服务器宕机其它两台redis服务也可以继续提供服务。</li><li>主redis中的数据和从redis上的数据保持实时同步，当主redis写入数据时通过主从复制机制会复制到两个从redis服务上。只有一个主redis，可以有多个从redis。</li><li>主从复制不会阻塞master，在同步数据时，master 可以继续处理client 请求</li><li>一个redis可以即是主又是从</li></ul><h2 id="主从配置">主从配置</h2><p>现在我们需要修改redis中的redis.conf中的配置信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs plain">将daemonze由no改为yes(Redis默认不是以守护进程的方式运行，可以通过该配置项修改，使用yes启用守护进程)<br>#bind 127.0.0.1 取消绑定本机IP  任意主机都能连上<br>daemonize yes 守护进程修改yes<br>protected-mode no保护模式，修改成NO<br>replicaof 主redis IP地址 端口号修改主从同步配置(只需要改从服务器)<br></code></pre></td></tr></table></figure><p>现在就要 开始启动redis看看效果，redis启动主要分为<strong>前端启动</strong>和<strong>后端启动</strong></p><h3 id="前端启动-font-color-red-不推荐-font">前端启动(<font color="red">不推荐</font>)</h3><ul><li>启动命令：redis-server，直接运行bin/redis-server将以前端模式启动。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">.&#x2F;redis-server<br></code></pre></td></tr></table></figure></li><li>关闭命令：ctrl+c</li></ul><p>启动缺点：客户端窗口关闭则redis-server程序结束，不推荐使用此方法<br>启动图例<br><img src= "/img/loading.gif" data-lazy-src="/posts/39474014/2.png" alt="*"></p><h3 id="后端启动-守护线程启动">后端启动(守护线程启动)</h3> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">redis-server redis.conf<br></code></pre></td></tr></table></figure><h3 id="后端启动的关闭方式">后端启动的关闭方式</h3><ul><li>非正常关闭（不推荐使用）：</li></ul>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">kill -9  pid <br></code></pre></td></tr></table></figure><ul><li>正常关闭</li></ul> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">.&#x2F;redis-cli shutdown<br></code></pre></td></tr></table></figure><h3 id="其他命令说明">其他命令说明</h3><ul><li>redis-server ：启动redis服务</li><li>redis-cli ：进入redis命令客户端</li><li>redis-benchmark： 性能测试的工具</li><li>redis-check-aof ： aof文件进行检查的工具</li><li>redis-check-dump ：  rdb文件进行检查的工具</li><li>redis-sentinel ：  启动哨兵监控服务</li></ul><p>启动redis图解<br><img src= "/img/loading.gif" data-lazy-src="/posts/39474014/3.png" alt="*"></p><p>分别启动主redis和从redis服务，会发现从redis只有读的权限没有写的权限，并且主redis插入数据时从redis会同步更新(会有1秒左右的延迟)，下图就实现了reids的主从复制<br><img src= "/img/loading.gif" data-lazy-src="/posts/39474014/4.png" alt="*"></p><h3 id="实现原理">实现原理</h3><ul><li>Redis的主从同步，分为全量同步和增量同步。</li><li>只有从机第一次连接上主机是全量同步</li><li>断线重连有可能触发全量同步也有可能是增量同步（master判断runid是否一致）</li><li>除此之外的情况都是增量同步<br><img src= "/img/loading.gif" data-lazy-src="/posts/39474014/5.png" alt="*"></li></ul><h2 id="Redis-Sentinel哨兵机制">Redis Sentinel哨兵机制</h2><p>*** Redis主从复制的缺点：没有办法对master进行动态选举，需要使用Sentinel机制完成动态选举 ***</p><h3 id="什么是哨兵机制？">什么是哨兵机制？</h3><ul><li>Sentinel(哨兵)进程是用于监控redis集群中Master主服务器工作的状态</li><li>在Master主服务器发生故障的时候，可以实现Master和Slave服务器的切换，保证系统的高可用（HA）</li><li>通俗的话来说就是一个保安负责小区的安全，每天监控着小区，redis中的哨兵机制亦是如此，监控着主从redis中当我们的主redis挂掉以后，可以让从redis顶上主redis的位置，实现高可用</li></ul><h3 id="哨兵进程的作用">哨兵进程的作用</h3><ol><li>监控(Monitoring): 哨兵(sentinel) 会不断地检查你的Master和Slave是否运作正常。</li><li>提醒(Notification)： 当被监控的某个Redis节点出现问题时, 哨兵(sentinel) 可以通过 API 向管理员或者其他应用程序发送通知。</li><li>自动故障迁移(Automatic failover)：当一个Master不能正常工作时，哨兵(sentinel) 会开始一次自动故障迁移操作。</li></ol><ul><li>它会将失效Master的其中一个Slave升级为新的Master, 并让失效Master的其他Slave改为复制新的Master；</li><li>当客户端试图连接失效的Master时，集群也会向客户端返回新Master的地址，使得集群可以使用现在的Master替换失效Master。</li><li>Master和Slave服务器切换后，Master的redis.conf、Slave的redis.conf和sentinel.conf的配置文件的内容都会发生相应的改变，即，Master主服务器的redis.conf配置文件中会多一行slaveof的配置，sentinel.conf的监控目标会随之调换。</li></ul><h3 id="哨兵进程的工作方式">哨兵进程的工作方式</h3><ol><li>每个Sentinel（哨兵）进程以<font color="red">每秒钟一次</font>的频率向整个集群中的<font color="red">Master主服务器，Slave从服务器以及其他Sentinel（哨兵）进程</font>发送一个<font color="red">PING</font>  命令。</li><li>如果一个实例（instance）距离最后一次有效回复 PING 命令的时间超过 down-after-milliseconds 选项所指定的值， 则这个实例会被 Sentinel（哨兵）进程标记为<font color="red">主观下线（SDOWN）</font>。</li><li>如果一个Master主服务器被标记为主观下线（SDOWN），则正在监视这个Master主服务器的<font color="red">所有 Sentinel（哨兵）</font>进程要以每秒一次的频率<font color="red">确认Master主服务器</font>的确<font color="red">进入了主观下线状态</font>。</li><li><font color="red">当有足够数量的Sentinel（哨兵）</font>进程（大于等于配置文件指定的值）在指定的时间范围内<font color="red">确认Master主服务器进入了主观下线状态（SDOWN）</font>， 则Master主服务器会被标记为<font color="red">客观下线（ODOWN）</font>。</li><li>在一般情况下， 每个 Sentinel（哨兵）进程会以每 10 秒一次的频率向集群中的所有Master主服务器、Slave从服务器发送 INFO 命令。</li><li>当Master主服务器被 Sentinel（哨兵）进程标记为<font color="red">客观下线（ODOWN）</font>时，Sentinel（哨兵）进程向下线的 Master主服务器的所有 Slave从服务器发送 INFO 命令的频率会从 10 秒一次改为每秒一次。</li><li>若没有足够数量的 Sentinel（哨兵）进程同意 Master主服务器下线， Master主服务器的客观下线状态就会被移除。若 Master主服务器重新向 Sentinel（哨兵）进程发送 PING 命令返回有效回复，Master主服务器的主观下线状态就会被移除。<br><img src= "/img/loading.gif" data-lazy-src="/posts/39474014/6.png" alt="*"></li></ol><p>只需要修改从redis中sentinel.conf</p> <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">.&#x2F;redis-cli shutdown<br></code></pre></td></tr></table></figure><ul><li>启动主redis和从redis后，通过redis-sentinel启动哨兵服务</li></ul>  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs plain">.&#x2F;redis-sentinel sentinel.conf<br></code></pre></td></tr></table></figure>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
-      
-    
-    </summary>
-    
-    
-    
-  </entry>
-  
-  <entry>
-    <title>Jenkins持续集成安装和部署</title>
-    <link href="https://xiang.bio/posts/e0ccad08.html"/>
-    <id>https://xiang.bio/posts/e0ccad08.html</id>
-    <published>2020-07-31T08:35:49.000Z</published>
-    <updated>2020-08-07T08:37:45.000Z</updated>
-    
-    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h2 id="什么是Jenkins持续集成？">什么是Jenkins持续集成？</h2><p><strong>持续集成,即Continuous InterGration,简称CI，随着软件开发复杂度的不断提高，团队开发成员之间如何更好的协同工作以确保软件的开发质量已经成为一个不可回避的问题。尤其是近年来如何能在不断变化的需求中快速适应和保证软件的质量显得尤其的重要，持续集成就是针对此类问题的是一种软件同实践。它倡导团队开发成员必须经常集成他们的工作，甚至每天都可能发生多次集成，而持续集成都是通过自动化的构建来实现的，包括自动获取仓库代码、自动编译、自动发布和测试、从而尽可能地早的发现问题，让团队能更快地开发高质量的软件。</strong></p><h2 id="持续集成的核心价值">持续集成的核心价值</h2><ol><li>持续集成中的任何一个环节都是自动完成的，无需太多人工干预，有利于减少重复操作，以节省时间、费用和工作量</li><li>持续集成保障每个时间点上团队成员提交的代码是能成功集成的，也就是说，任何时间点都能第一时间发现软件的集成问题，使任意时间发布可部署软件成为可能</li><li>持续集成在需求不明确或是频繁变更的情景中尤为重要</li><li>持续集成能帮助企业减少管理风险，很多时候，团队中任何一人都不知道项目到底什么时候能真正结束，因为不连接，不及时的集成最大的问题就是：很难预测项目要花多长时间，结果就是，大家都像个盲人一样置身于项目的大森林里。持续集成完全能解决这些问题，没有漫长的集成工作，所有的盲点尽在掌握</li></ol><h2 id="持续集成的应用场景">持续集成的应用场景</h2><ul><li>假设一个开发团队有9个人，每个人负责一个功能，或者一个模块，开发者小智是其中之一，当小智写了一个月的代码，然后合并进系统中，这个时候有什么问题呢？问题就是可能小智需要三天解决代码之间的冲突，再用一周解决冲突时候新产生的BUG，再用一周帮助其他团队成员和他的代码之间进行整合，在很多时候，这样的风险会伴随整个项目周期，<br>而持续集成就是每天都集成，或者每天集成10次(每隔30分钟集成一次)。这样每次集成进系统中的代码很少，解决五行代码引起的错误简单和解决500行代码引起的错误，哪个更简单？但是现在还有一个很实际的问题，就是持续集成这个脏活累活，谁来做？当然是CI它能让持续集成自动化，简单化。(可以通过这个应用场景，在团队协作开发过程中，持续集成真正的作用)*<br><img src= "/img/loading.gif" data-lazy-src="https://img-blog.csdnimg.cn/20200716104919148.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xpdXppYmFvMTIz,size_16,color_FFFFFF,t_70" alt="alt"><br>==以后在更新==</li></ul>]]></content>
     
     <summary type="html">
     
