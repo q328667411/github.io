@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://xiang.bio/"/>
-  <updated>2020-09-28T03:02:48.958Z</updated>
+  <updated>2020-10-16T01:31:43.806Z</updated>
   <id>https://xiang.bio/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>jenkins+git+maven集成部署</title>
+    <link href="https://xiang.bio/posts/e49f0579.html"/>
+    <id>https://xiang.bio/posts/e49f0579.html</id>
+    <published>2020-10-16T01:04:43.000Z</published>
+    <updated>2020-10-16T01:31:43.806Z</updated>
+    
+    <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="/assets/css/APlayer.min.css"><script src="/assets/js/APlayer.min.js" class="aplayer-secondary-script-marker"></script><h1>jenkins+git+maven集成部署</h1><h2 id="什么是jenkins">什么是jenkins?</h2><blockquote><p>Jenkins是一个开源的、提供友好操作界面的持续集成(CI)工具，起源于Hudson（Hudson是商用的），主要用于持续、自动的构建/测试软件项目、监控外部任务的运行（这个比较抽象，暂且写上，不做解释）。Jenkins用Java语言编写，可在Tomcat等流行的servlet容器中运行，也可独立运行。通常与版本管理工具(SCM)、构建工具结合使用。常用的版本控制工具有SVN、GIT，构建工具有Maven、Ant、Gradle。</p></blockquote><h2 id="使用jenkins的好处">使用jenkins的好处</h2><ol><li>解放了重复性劳动<br>自动化部署工作可以解放了集成、测试、部署等重复性劳动，而且机器集成的频率明显可以比手工的高很多。</li><li>更快地修复问题<br>由于持续集成更早的获取变更，更早的进入测试，也就能更早的发现问题，解决问题的成本显著下降。</li><li>更快地交付成果<br>及早集成、及早测试减少了缺陷遗留到部署环节的机会。在某些情况下，更早地查找错误还会减少解决错误所需的工作量。<br>如果集成服务器对代码进行构建过程中发现错误，可以及时发送邮件或者短信提供给开发人员进行修复。<br>如果集成服务器在部署环节发现当前版本有问题不可用，集成服务器会将部署回退到上一个版本。这样服务器上始终都会有一个可用的版本。</li><li>减少手工的错误<br>人与机器的一个最大的区别是，在重复性动作上，人容易犯错，而机器犯错的几率几乎为零。所以，当我们搭建完成集成服务器后，以后的事就交给集成服务器、来打理吧。</li><li>减少了等待时间<br>持续集成缩短了从开发、集成、测试、部署各个环节的时间，从而也就缩短了中间可以出现的等待时间。持续集成，意味着开发、集成、测试、部署也得以持续。</li><li>更高的产品质量<br>集成服务器往往提供 Code review、代码质量检测等功能。对代码不规范或者有错误的地方会进行标识，也可以设置邮件、短信等进行告警。而开发人员通过 Code review 也可以持续提高编程的能力。</li></ol><h2 id="jenkins的执行过程">jenkins的执行过程</h2><p><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/jj.png" alt="*"><br>分别用了3台服务器来进行演示jenkins是如何进行集成部署的<br><em>当开发人员提交代码到git或者svn仓库中时，jenkins就会去仓库中拉取最新的代码，进行编译、测试、打包、部署，最终打包在tomcat服务器中</em></p><h2 id="jenkins安装">jenkins安装</h2><p>先去官网下好jenkins的war包，该war包在linux和windows是通用的  <a href="https://www.jenkins.io/download/">https://www.jenkins.io/download/</a><br>下好之后把jenkins.war包放在tomcat中的wabaps中然后启动tomcat就行了，<br><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/1.png" alt="*"><br>启动之后，需要先去提示找到密码进行登录，登录之后选择“安装推荐插件”，安装完之后就出现如下，<br><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/3.png" alt="*"><br>现在我们需要先去安装jenkins的插件来执行自动集成的操作，<br>选择左侧的Manage Jenkins →Manage Plugins→安装Deploy to container Plugin插件<br><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/4.png" alt="*"><br>然后在去全局工具配置中配置git、maven、jdk,并设置maven的settings.xml的位置，该配置用于jenkins用于打包pom文件中jar包<br><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/5.png" alt="*"><br><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/6.png" alt="*"><br><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/7.png" alt="*"><br><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/8.png" alt="*"><br>接下来配置完后就可以创建一个项目了<br>去首页新建item选择第一个选项 “自由的项目”<br>配置git的项目地址 Repository URL 输入 你要拉取项目的地址并在Credentials中设置git账号和密码<br><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/9.png" alt="*"><br>构建触发器，这个就是用来去git/svn仓库去拉取代码，我选择了第一个，用钩子程序来通知jenkins来工作，身份验证令牌的格式：<a href="http://xn--ip-im8ckc">http://ip地址</a>:端口号/jenkins/job/apple/build?token=ATGUIGU_TOKEN<br>ATGUIGU_TOKEN代表身份验证令牌的名称，定义之后可以在浏览器中输入  来执行jenkins<br><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/10.png" alt="*"><br>告诉maven以什么样的方式进行构建，每次执行都会执行clean package操作<br><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/11.png" alt="*"><br>到这一步就是jenkins已经打包好了，准备部署到tomcat服务器上，WAR/EAR files设置war包的位置，Context path设置启动tomcat以什么样的方式访问  我这配置的访问路径  <a href="http://192.168.253.8:8080/apple">http://192.168.253.8:8080/apple</a><br><img src= "/img/loading.gif" data-lazy-src="/posts/e49f0579/12.png" alt="*"><br>到这就配置完了，就可以开始执行jenkins了</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;link rel=&quot;stylesheet&quot; class=&quot;aplayer-secondary-style-marker&quot; href=&quot;/assets/css/APlayer.min.css&quot;&gt;&lt;script src=&quot;/assets/js/APlayer.min.js&quot; cla
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>Python爬虫总结</title>
