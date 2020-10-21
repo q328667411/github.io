@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://xiang.bio/posts/f59415f7.html</loc>
+    
+    <lastmod>2020-10-21</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://xiang.bio/posts/e49f0579.html</loc>
     
     <lastmod>2020-10-16</lastmod>
@@ -102,7 +109,7 @@
 
   <url>
     <loc>https://xiang.bio/</loc>
-    <lastmod>2020-10-16</lastmod>
+    <lastmod>2020-10-21</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
